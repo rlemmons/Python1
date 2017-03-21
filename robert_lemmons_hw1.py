@@ -3,7 +3,7 @@ import sys
 
 def verify_pin(pin):
     """
-
+    This is to verify that the input is correct
     """
     if pin == '1234':
         return True
@@ -12,16 +12,17 @@ def verify_pin(pin):
 
 def lock():
     """
-
+    This locks the users card if conditions are met.
     """
-    print("Your card has been locked out")
+    print("Your card has been blocked")
     exit(1)
 
 
 # Main function
 def GetInput():
     """
-    Test 1  Function
+    Main body of program, ensures correct info, format,
+    and counts down the number of tries
     """
     tries = 0
     while tries < 4:
@@ -30,19 +31,19 @@ def GetInput():
             print("Your pin is correct")
             return True
         else:
-            if len(pin) != 4:
+            if len(pin) != 4: #is it the correct length
                 print("Invalid PIN length. Correct format is: <8372>")
                 tries += 1
                 if tries == 3:
                     lock()
 
-            elif pin.isnumeric() == True:
+            elif pin.isnumeric() == True: # is the pin a number
                 print("Your PIN is incorrect")
                 tries += 1
                 if tries == 3:
                     lock()
 
-            else:
+            else: # is it a number
                 print("Invalid Pin character. Correct format is: <9876>")
                 tries += 1
                 if tries == 3:
